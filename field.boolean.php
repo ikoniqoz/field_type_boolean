@@ -70,12 +70,13 @@ class Field_boolean
 	private function _display_as_dropdown($data)
 	{
 
-
 		$myoptions = $data['custom'];
 
-		$myoptions=unserialize($myoptions);
-
-		//var_dump($myoptions);die;
+		if( ! is_array($myoptions))
+		{
+			$myoptions=unserialize($myoptions);
+		}
+		
 
 		$no = $myoptions['false_text'];
 		$yes = $myoptions['true_text'];
